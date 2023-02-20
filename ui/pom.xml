@@ -20,7 +20,7 @@
     <dependencies>
         <dependency>
             <groupId>com.netgroup</groupId>
-            <artifactId>domain</artifactId>
+            <artifactId>usecase</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
