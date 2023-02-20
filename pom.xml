@@ -17,9 +17,11 @@
     <name>inventory-v2</name>
     <description>inventory-v2</description>
     <modules>
-        <module>domain</module>
+        <module>usecase</module>
         <module>ui</module>
-        <module>spring-boot</module>
+        <module>application</module>
+        <module>infrastructure</module>
+        <module>entity</module>
     </modules>
 
     <properties>
