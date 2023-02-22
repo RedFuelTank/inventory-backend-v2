@@ -1,0 +1,19 @@
+[ver:1,total:4660,branch:main]
+.gtm/Spring Boot-> InventoryV2Application.app:1773,1676919600:714,1676923200:851,1677056400:208,r
+application/src/main/java/com/netgroup/config/SecurityConfig.java:650,1676919600:40,1677052800:460,1677056400:150,d
+pom.xml:408,1676919600:283,1676923200:105,1677052800:20,m
+infrastructure/src/main/java/com/netgroup/repository/client/model/RepresentativeModel.java:370,1676919600:370,r
+application/src/main/java/com/netgroup/config/security/SecurityConfig.java:339,1677056400:339,r
+application/src/main/resources/application.yaml:271,1676919600:209,1676923200:62,r
+application/src/main/java/com/netgroup/config/SwaggerConfig.java:216,1676919600:164,1676923200:52,d
+application/src/main/java/com/netgroup/config/security/handler/ApiEntryPoint.java:187,1677056400:187,r
+infrastructure/src/main/java/com/netgroup/repository/client/ClientRepositoryImpl.java:120,1676919600:120,r
+application/src/main/java/com/netgroup/config/security/handler/ApiAccessDeniedEntryPoint.java:62,1677056400:62,r
+Test.java:60,1676919600:60,d
+application/src/main/java/com/netgroup/config/MainConfiguration.java:60,1676919600:60,r
+infrastructure/src/main/java/com/netgroup/repository/client/model/BusinessModel.java:45,1676919600:45,r
+ui/src/main/java/module-info.java:30,1676919600:30,r
+src/main/java/Entity.java:30,1676919600:30,d
+infrastructure/pom.xml:15,1676919600:15,r
+.gtm/Application-> SecurityConfig.app:14,1677056400:14,r
+.gtm/Maven-> main [org.apache.maven.plugins->maven-clean-plugin->3.2.0->clean].app:10,1676923200:10,r
