@@ -17,6 +17,9 @@ spring:
   h2:
     console:
       enabled: true
+  liquibase:
+    clear-checksums: true
+    change-log: classpath:db/changelog/db.changelog-master.xml
 jwt:
   duration-min: 15
   key: r6m4GNX6voKiPh5pfCaWkQoG8d1E756ioKiPh2pfCaWk59ioKiPh2h5pfCaWkQoG8d1E756io
