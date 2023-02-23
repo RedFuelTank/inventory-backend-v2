@@ -1,0 +1,14 @@
+[ver:1,total:6300,branch:main]
+application/src/main/java/com/netgroup/config/security/SecurityConfig.java:2801,1677160800:540,1677164400:1759,1677168000:264,1677171600:238,m
+.gtm/Spring Boot-> InventoryV2Application.app:2147,1677164400:1774,1677168000:120,1677171600:253,r
+application/src/main/java/com/netgroup/config/security/jwt/JwtAuthenticationFilter.java:460,1677168000:130,1677171600:330,m
+application/src/main/java/com/netgroup/config/security/LoginCredentials.java:182,1677171600:182,m
+application/src/main/java/com/netgroup/config/security/jwt/JwtAuthorizationFilter.java:177,1677171600:177,m
+application/src/main/java/com/netgroup/config/security/jwt/JwtHelper.java:144,1677168000:144,m
+pom.xml:133,1677164400:13,1677168000:120,m
+application/src/main/resources/application.yaml:79,1677168000:72,1677171600:7,m
+ui/src/main/java/com/netgroup/web/HelloController.java:54,1677164400:54,r
+application/src/main/java/com/netgroup/config/security/handler/AuthFailureHandler.java:38,1677171600:38,m
+application/src/main/java/com/netgroup/config/security/handler/AuthSuccessHandler.java:35,1677171600:35,m
+application/src/main/java/com/netgroup/config/security/jwt/JwtConfig.java:30,1677168000:30,m
+application/src/main/java/com/netgroup/config/security/TokenInfo.java:20,1677168000:20,m
