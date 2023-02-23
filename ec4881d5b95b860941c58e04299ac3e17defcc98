@@ -1,0 +1,11 @@
+[ver:1,total:3376,branch:main]
+.gtm/Spring Boot-> InventoryV2Application.app:2341,1677171600:913,1677175200:60,1677182400:1120,1677186000:248,r
+application/src/main/resources/db.changelog-master.xml:532,1677175200:240,1677182400:292,d
+application/src/main/resources/db/changelog/db.changelog-master.xml:198,1677182400:198,r
+infrastructure/src/main/java/com/netgroup/repository/client/model/RepresentativeModel.java:110,1677182400:110,m
+infrastructure/src/main/java/com/netgroup/repository/client/model/BusinessModel.java:70,1677182400:70,m
+application/src/main/resources/db.changelog-master.yaml:60,1677182400:60,d
+application/src/main/java/com/netgroup/config/security/jwt/JwtConfig.java:20,1677182400:20,r
+infrastructure/src/main/java/module-info.java:20,1676919600:20,m
+application/src/main/java/com/netgroup/config/security/handler/ApiEntryPoint.java:13,1677186000:13,r
+application/src/main/java/com/netgroup/config/security/handler/AuthFailureHandler.java:12,1677186000:12,r
