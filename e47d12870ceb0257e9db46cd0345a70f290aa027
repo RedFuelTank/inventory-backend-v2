@@ -1,0 +1,8 @@
+[ver:1,total:10335,branch:main]
+.gtm/Spring Boot-> InventoryV2Application.app:9385,1677186000:626,1677189600:1496,1677193200:180,1677268800:1098,1677272400:254,1677322800:9,1677438000:1657,1677441600:1183,1677445200:1280,1677690000:412,1677693600:203,1677697200:987,r
+entity/src/main/java/com/netgroup/entity/client/Business.java:391,1677438000:32,1677690000:23,1677693600:328,1677697200:8,m
+entity/src/main/java/com/netgroup/entity/client/Representative.java:282,1677186000:45,1677438000:121,1677445200:14,1677690000:102,m
+infrastructure/src/main/java/com/netgroup/repository/client/model/Authority.java:173,1677268800:90,1677272400:83,r
+infrastructure/src/main/java/com/netgroup/repository/client/model/Authorities.java:83,1677268800:83,r
+application/src/main/java/com/netgroup/InventoryV2Application.java:13,1677268800:13,r
+usecase/src/main/java/com/netgroup/usecase/client/api/BusinessDto.java:8,1677189600:8,r
