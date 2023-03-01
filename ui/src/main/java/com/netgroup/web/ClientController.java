@@ -5,7 +5,9 @@ import com.netgroup.usecase.client.api.BusinessDto;
 import com.netgroup.usecase.client.api.ClientService;
 import com.netgroup.usecase.client.api.RepresentativeDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -13,13 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class ClientController {
     private final ClientService service;
 
-    @PostMapping("/register")
-    public RepresentativeDto register(RepresentativeDto representativeDto) {
+    @PostMapping("/user/register")
+    public RepresentativeDto register(@RequestBody RepresentativeDto representativeDto) {
         return service.registerUser(representativeDto);
     }
 
     @PostMapping("/business/register")
-    public BusinessDto registerBusiness(BusinessDto businessDto) {
-        return service.registerBusiness(null, businessDto);
+    public BusinessDto registerBusiness(@RequestBody BusinessDto businessDto, Authentication auth) {
+        System.out.println(businessDto.getName());
+        return service.registerBusiness(auth.getName(), businessDto);
     }
 }
