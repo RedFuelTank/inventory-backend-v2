@@ -1,20 +1,30 @@
 package com.netgroup.repository.client.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
-@Table(name = "users")
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Table(name = "representatives")
 public class RepresentativeModel {
     @Id
-    private Long id;
-
     @Column(name = "username")
     private String username;
+
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "enabled")
+    private boolean enabled;
+
+    @ElementCollection
+    @CollectionTable(name = "Authorities", joinColumns = @JoinColumn(name = "username"))
+    @Column(name = "authority")
+    private List<String> authority;
 }

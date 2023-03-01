@@ -1,20 +1,34 @@
 package com.netgroup.repository.client.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Setter
 @Getter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "businesses")
 public class BusinessModel {
     @Id
-    private Long id;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "username")
-    private String username;
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "enabled")
+    private boolean enabled;
+
+    @ManyToOne
+    @JoinColumn(name = "representative_username")
+    private RepresentativeModel representative;
+
+    @ElementCollection
+    @CollectionTable(name = "business_authorities", joinColumns = @JoinColumn(name = "name"))
+    @Column(name = "authority")
+    private List<String> authority;
 }
