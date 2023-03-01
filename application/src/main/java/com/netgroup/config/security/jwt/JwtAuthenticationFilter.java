@@ -43,7 +43,7 @@ public class JwtAuthenticationFilter extends AbstractAuthenticationProcessingFil
         LoginCredentials loginCredentials = new ObjectMapper().readValue(body, LoginCredentials.class);
 
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
-                loginCredentials.getUsername(), loginCredentials.getPassword());
+                loginCredentials.getName(), loginCredentials.getPassword());
 
         return getAuthenticationManager().authenticate(token);
     }

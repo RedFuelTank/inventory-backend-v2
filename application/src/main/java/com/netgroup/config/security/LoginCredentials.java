@@ -8,6 +8,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 public class LoginCredentials {
-    private String username;
+    private String name;
     private String password;
 }
