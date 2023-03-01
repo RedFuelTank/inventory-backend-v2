@@ -1,16 +1,15 @@
 package com.netgroup.usecase.client.api;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class RepresentativeDto {
     @NonNull
-    private String name;
+    private String username;
 
     @NonNull
     private String password;
