@@ -6,7 +6,6 @@ import com.netgroup.config.security.jwt.JwtAuthenticationFilter;
 import com.netgroup.config.security.jwt.JwtAuthorizationFilter;
 import com.netgroup.config.security.jwt.JwtConfig;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -17,10 +16,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.intercept.AuthorizationFilter;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -46,8 +43,7 @@ public class SecurityConfig {
 
             http.securityMatcher("/user/**")
                     .authorizeHttpRequests()
-                    .requestMatchers("/login").permitAll()
-                    .anyRequest().hasAuthority("USER");
+                    .requestMatchers("/user/register").permitAll();
 
             AuthenticationManagerBuilder sharedObject = http.getSharedObject(AuthenticationManagerBuilder.class);
             configAuthentication(sharedObject, dataSource);
@@ -73,8 +69,7 @@ public class SecurityConfig {
 
             http.securityMatcher("/business/**")
                     .authorizeHttpRequests()
-                    .requestMatchers("/login").permitAll()
-                    .anyRequest().hasAuthority("BUSINESS");
+                    .requestMatchers("/business/register").permitAll();
 
             AuthenticationManagerBuilder sharedObject = http.getSharedObject(AuthenticationManagerBuilder.class);
             configAuthentication(sharedObject, dataSource);
@@ -86,8 +81,8 @@ public class SecurityConfig {
 
         public void configAuthentication(AuthenticationManagerBuilder auth, DataSource dataSource) throws Exception {
             auth.jdbcAuthentication().dataSource(dataSource)
-                    .usersByUsernameQuery("select username, password, enabled from businesses where username=?")
-                    .authoritiesByUsernameQuery("select username, authority from business_authorities where username=?");
+                    .usersByUsernameQuery("select name, password, enabled from businesses where name=?")
+                    .authoritiesByUsernameQuery("select name, authority from business_authorities where name=?");
         }
     }
 
@@ -124,11 +119,6 @@ public class SecurityConfig {
 
             http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         }
-    }
-
-    @Bean
-    public UserDetailsService userDetailsRepresentative(DataSource dataSource) {
-        return new JdbcUserDetailsManager(dataSource);
     }
 
     @Bean
