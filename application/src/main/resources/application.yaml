@@ -6,14 +6,14 @@ spring:
   jpa:
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.H2Dialect
+        dialect: org.hibernate.dialect.HSQLDialect
     hibernate:
       ddl-auto: validate
   datasource:
-    url: jdbc:h2:mem:db1
+    url: jdbc:hsqldb:hsql://localhost/db1
     username: sa
     password:
-    driver-class-name: org.h2.Driver
+    driver-class-name: org.hsqldb.jdbcDriver
   h2:
     console:
       enabled: true
