@@ -5,13 +5,19 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Builder
 public class Business {
-    private Long id;
     @NonNull
     private String name;
     @NonNull
-    private Representative representative;
+    private String password;
+    @NonNull
+    private String representativeUsername;
+
+    @NonNull
+    private final List<String> authority = List.of("BUSINESS");
 }
