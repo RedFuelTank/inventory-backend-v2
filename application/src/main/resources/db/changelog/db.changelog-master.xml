@@ -8,11 +8,8 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
     <changeSet id="V1__CREATE_USER_TABLE" author="">
         <createTable tableName="representatives">
-            <column name="id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true"/>
-            </column>
             <column name="username" type="varchar(255)">
-                <constraints nullable="false" unique="true"/>
+                <constraints primaryKey="true"/>
             </column>
             <column name="password" type="varchar(255)">
                 <constraints nullable="false"/>
@@ -23,7 +20,7 @@
         </createTable>
         <createTable tableName="authorities">
             <column name="username" type="varchar(50)">
-                <constraints nullable="false" foreignKeyName="fk_authority_username_user" references="representatives(username)" deleteCascade="true"/>
+                <constraints nullable="false" foreignKeyName="fk_authority_username" references="representatives(username)" deleteCascade="true"/>
             </column>
             <column name="authority" type="varchar(50)">
                 <constraints nullable="false"/>
@@ -31,11 +28,8 @@
         </createTable>
 
         <createTable tableName="businesses">
-            <column name="id" type="bigint" autoIncrement="true">
+            <column name="name" type="varchar(255)">
                 <constraints primaryKey="true"/>
-            </column>
-            <column name="username" type="varchar(255)">
-                <constraints nullable="false" unique="true"/>
             </column>
             <column name="password" type="varchar(255)">
                 <constraints nullable="false"/>
@@ -43,10 +37,13 @@
             <column name="enabled" type="boolean">
                 <constraints nullable="false"/>
             </column>
+            <column name="representative_username" type="varchar(50)">
+                <constraints nullable="false" foreignKeyName="fk_representative_name_business" references="representatives(username)" deleteCascade="true"/>
+            </column>
         </createTable>
         <createTable tableName="business_authorities">
-            <column name="username" type="varchar(50)">
-                <constraints nullable="false" foreignKeyName="fk_authority_username_business" references="businesses(username)" deleteCascade="true"/>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false" foreignKeyName="fk_authority_name_business" references="businesses(name)" deleteCascade="true"/>
             </column>
             <column name="authority" type="varchar(50)">
                 <constraints nullable="false"/>
@@ -62,18 +59,19 @@
         </insert>
         <insert tableName="Authorities">
             <column name="username" value="user"/>
-            <column name="authority" value="USER"/>
+            <column name="authority" value="REPRESENTATIVE"/>
         </insert>
     </changeSet>
 
     <changeSet id="V3__ADD_BUSINESS" author="">
         <insert tableName="businesses">
-            <column name="username" value="admin"/>
+            <column name="name" value="Testable"/>
             <column name="password" value="$2a$10$rDhr28yT2X26mqQVytCJUOti9k6Ry16i3HSWM.vLZ8zMQQl1SqyO2"/>
             <column name="enabled" value="true"/>
+            <column name="representative_username" value="user"/>
         </insert>
         <insert tableName="business_authorities">
-            <column name="username" value="admin"/>
+            <column name="name" value="Testable"/>
             <column name="authority" value="BUSINESS"/>
         </insert>
     </changeSet>
