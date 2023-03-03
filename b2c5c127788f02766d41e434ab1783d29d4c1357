@@ -1,0 +1,6 @@
+[ver:1,total:1593,branch:main]
+.gtm/Spring Boot-> InventoryV2Application.app:921,1677787200:90,1677790800:231,1677794400:180,1677798000:420,r
+entity/src/main/java/com/netgroup/entity/inventory_system/Item.java:261,1677787200:141,1677866400:120,r
+entity/src/main/java/com/netgroup/entity/inventory_system/Storage.java:199,1677787200:139,1677866400:60,r
+ui/src/main/java/com/netgroup/web/HelloController.java:180,1677700800:180,r
+entity/src/main/java/com/netgroup/entity/client/Business.java:32,1677787200:32,m
