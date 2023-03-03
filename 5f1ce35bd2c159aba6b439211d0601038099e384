@@ -1,0 +1,13 @@
+[ver:1,total:2940,branch:main]
+usecase/src/main/java/com/netgroup/usecase/inventory_system/InventorySystemServiceImpl.java:1131,1677866400:895,1677870000:236,r
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/StorageDto.java:485,1677866400:315,1677870000:170,m
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/ItemRepository.java:350,1677866400:218,1677870000:132,r
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/InventorySystemService.java:295,1677866400:295,r
+entity/src/main/java/com/netgroup/entity/inventory_system/Payment.java:200,1677870000:200,r
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/StorageRepository.java:129,1677866400:117,1677870000:12,r
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/ItemDto.java:125,1677866400:75,1677870000:50,m
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/InventorySystemRepository.java:120,1677866400:120,d
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/InventorySystemServiceImpl.java:45,1677866400:45,d
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/EntityDto.java:20,1677866400:20,d
+entity/src/main/java/com/netgroup/entity/inventory_system/Storage.java:20,1677870000:20,r
+entity/src/main/java/com/netgroup/entity/inventory_system/Item.java:20,1677870000:20,r
