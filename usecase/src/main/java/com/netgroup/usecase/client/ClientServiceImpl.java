@@ -30,9 +30,9 @@ public class ClientServiceImpl implements ClientService {
         Business business = Business.builder()
                 .name(businessDto.getName())
                 .password(businessDto.getPassword())
-                .representativeUsername(representativeUsername)
+                .representative(repository.getRepresentativeByUsername(representativeUsername)
+                        .orElseThrow(IllegalArgumentException::new))
                 .build();
-
         repository.registerBusiness(business);
         return businessDto;
     }
