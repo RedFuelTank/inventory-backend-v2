@@ -16,7 +16,7 @@ public class Business {
     @NonNull
     private String password;
     @NonNull
-    private String representativeUsername;
+    private Representative representative;
 
     @NonNull
     private final List<String> authority = List.of("BUSINESS");
