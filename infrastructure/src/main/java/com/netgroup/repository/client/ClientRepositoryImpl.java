@@ -13,6 +13,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Repository
 @RequiredArgsConstructor
 public class ClientRepositoryImpl implements ClientRepository {
@@ -45,9 +47,14 @@ public class ClientRepositoryImpl implements ClientRepository {
         if (doesBusinessExist(business.getName())) {
             throw new IllegalArgumentException();
         }
+        Representative representative = business.getRepresentative();
 
-        TypedQuery<RepresentativeModel> query = getRepresentativeQueryWith(business.getRepresentativeUsername());
-        RepresentativeModel representativeModel = query.getResultStream().findFirst().orElseThrow(IllegalArgumentException::new);
+        RepresentativeModel representativeModel = RepresentativeModel.builder()
+                .username(representative.getUsername())
+                .password(representative.getPassword())
+                .enabled(true)
+                .authority(representative.getAuthority())
+                .build();
 
         BusinessModel model = BusinessModel.builder()
                 .name(business.getName())
@@ -59,8 +66,25 @@ public class ClientRepositoryImpl implements ClientRepository {
 
         manager.persist(model);
 
-
         return business;
+    }
+
+    @Override
+    public Optional<Representative> getRepresentativeByUsername(String representativeUsername) {
+        TypedQuery<RepresentativeModel> query = manager.createQuery("select r from RepresentativeModel r where username = :username", RepresentativeModel.class);
+        query.setParameter("username", representativeUsername);
+
+        Optional<RepresentativeModel> possibleRepresentativeModel = query.getResultStream().findFirst();
+
+        if (possibleRepresentativeModel.isPresent()) {
+            RepresentativeModel representativeModel = possibleRepresentativeModel.get();
+            return Optional.of(Representative.builder()
+                    .username(representativeModel.getUsername())
+                    .password(representativeModel.getPassword())
+                    .build());
+        } else {
+            return Optional.empty();
+        }
     }
 
     private boolean doesRepresentativeExist(String username) {
