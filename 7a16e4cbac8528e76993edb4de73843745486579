@@ -1,0 +1,11 @@
+[ver:1,total:2084,branch:main]
+infrastructure/src/main/java/com/netgroup/repository/inventory_system/StorageRepositoryImpl.java:753,1677870000:753,r
+infrastructure/src/main/java/com/netgroup/repository/inventory_system/ItemRepositoryImpl.java:450,1677870000:450,r
+infrastructure/src/main/java/com/netgroup/repository/inventory_system/model/ItemModel.java:343,1677870000:243,1677916800:100,r
+.gtm/Spring Boot-> InventoryV2Application.app:210,1677916800:210,r
+infrastructure/src/main/java/com/netgroup/repository/inventory_system/model/StorageModel.java:200,1677870000:90,1677916800:110,r
+infrastructure/src/main/java/com/netgroup/repository/client/model/BusinessModel.java:37,1677870000:7,1677916800:30,r
+entity/src/main/java/com/netgroup/entity/inventory_system/Item.java:28,1677916800:28,m
+entity/src/main/java/com/netgroup/entity/inventory_system/Storage.java:26,1677916800:26,m
+application/src/main/resources/application.yaml:20,1677916800:20,r
+infrastructure/src/main/java/com/netgroup/repository/inventory_system/ItemRepository.java:17,1677870000:17,d
