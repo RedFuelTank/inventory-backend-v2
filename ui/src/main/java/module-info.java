@@ -3,5 +3,5 @@ module com.netgroup.ui {
     requires spring.security.core;
     requires com.netgroup.usecase;
     requires lombok;
-    exports com.netgroup.web;
+    exports com.netgroup.web.client;
 }

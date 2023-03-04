@@ -1,4 +1,4 @@
-package com.netgroup.web;
+package com.netgroup.web.client;
 
 
 import com.netgroup.usecase.client.api.BusinessDto;
