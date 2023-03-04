@@ -26,7 +26,9 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+    </changeSet>
 
+    <changeSet id="V2__CREATE_BUSINESS_TABLE" author="">
         <createTable tableName="businesses">
             <column name="name" type="varchar(255)">
                 <constraints primaryKey="true"/>
@@ -51,7 +53,7 @@
         </createTable>
     </changeSet>
 
-    <changeSet id="V2__ADD_USER" author="">
+    <changeSet id="V3__ADD_USER" author="">
         <insert tableName="Representatives">
             <column name="username" value="user"/>
             <column name="password" value="$2a$10$rDhr28yT2X26mqQVytCJUOti9k6Ry16i3HSWM.vLZ8zMQQl1SqyO2"/>
@@ -63,7 +65,7 @@
         </insert>
     </changeSet>
 
-    <changeSet id="V3__ADD_BUSINESS" author="">
+    <changeSet id="V4__ADD_BUSINESS" author="">
         <insert tableName="businesses">
             <column name="name" value="Testable"/>
             <column name="password" value="$2a$10$rDhr28yT2X26mqQVytCJUOti9k6Ry16i3HSWM.vLZ8zMQQl1SqyO2"/>
@@ -74,5 +76,39 @@
             <column name="name" value="Testable"/>
             <column name="authority" value="BUSINESS"/>
         </insert>
+    </changeSet>
+
+    <changeSet id="V5__ADD_STORAGE_TABLE" author="">
+        <createTable tableName="storages">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="business_name" type="varchar(255)">
+                <constraints foreignKeyName="fk_storage_business_name" references="businesses(name)" deleteCascade="true"/>
+            </column>
+            <column name="upper_storage_id" type="bigint">
+                <constraints foreignKeyName="fk_storage_upper_storage_id" references="storages(id)" deleteCascade="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="V6__ADD_ITEM_TABLE" author="">
+        <createTable tableName="items">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="business_name" type="varchar(255)">
+                <constraints foreignKeyName="fk_item_business_name" references="businesses(name)" deleteCascade="true"/>
+            </column>
+            <column name="storage_id" type="bigint">
+                <constraints foreignKeyName="fk_item_storage_id" references="storages(id)" deleteCascade="true"/>
+            </column>
+        </createTable>
     </changeSet>
 </databaseChangeLog>
