@@ -1,0 +1,3 @@
+[ver:1,total:180,branch:main]
+.gtm/Spring Boot-> InventoryV2Application.app:171,1677916800:171,r
+infrastructure/src/main/java/com/netgroup/repository/inventory_system/model/StorageModel.java:9,1677916800:9,m
