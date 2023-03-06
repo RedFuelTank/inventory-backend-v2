@@ -32,4 +32,19 @@ public class StorageRepositoryImpl implements StorageRepository {
                 .build()).toList();
     }
 
+    @Override
+    @Transactional
+    public Storage saveStorage(Storage storage) {
+        StorageModel storageModel = StorageModel.builder()
+                .name(storage.getName())
+                .businessName(storage.getBusinessName())
+                .upperStorageId(storage.getUpperStorageId())
+                .build();
+
+        manager.persist(storageModel);
+        storage.setId(storageModel.getId());
+
+        return storage;
+    }
+
 }

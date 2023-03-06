@@ -31,4 +31,19 @@ public class ItemRepositoryImpl implements ItemRepository {
                 .storageId(s.getStorageId())
                 .build()).toList();
     }
+
+    @Override
+    @Transactional
+    public Item saveItem(Item item) {
+        ItemModel itemModel = ItemModel.builder()
+                .name(item.getName())
+                .businessName(item.getBusinessName())
+                .storageId(item.getStorageId())
+                .build();
+
+        manager.persist(itemModel);
+        item.setId(itemModel.getId());
+
+        return item;
+    }
 }
