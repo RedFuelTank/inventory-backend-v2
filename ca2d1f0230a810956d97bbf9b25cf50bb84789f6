@@ -1,0 +1,11 @@
+[ver:1,total:6927,branch:main]
+.gtm/Spring Boot-> InventoryV2Application.app:2964,1677927600:437,1678035600:1465,1678039200:1062,r
+ui/src/main/java/com/netgroup/web/inventory_system/InventorySystemController.java:2170,1677920400:420,1677927600:744,1677931200:60,1678035600:855,1678039200:91,r
+usecase/src/main/java/com/netgroup/usecase/inventory_system/InventorySystemServiceImpl.java:1060,1677927600:45,1678035600:475,1678039200:420,1678118400:120,m
+ui/pom.xml:180,1678006800:180,r
+usecase/src/main/java/module-info.java:150,1677938400:150,r
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/StorageRepository.java:134,1677927600:8,1678035600:126,m
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/StorageDto.java:107,1678035600:47,1678118400:60,r
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/InventorySystemService.java:105,1677927600:25,1678035600:80,m
+infrastructure/src/main/java/module-info.java:30,1677938400:30,r
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/ItemRepository.java:27,1677927600:17,1678035600:10,m
