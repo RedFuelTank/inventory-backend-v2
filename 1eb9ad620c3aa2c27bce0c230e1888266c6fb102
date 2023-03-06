@@ -1,0 +1,3 @@
+[ver:1,total:1299,branch:main]
+infrastructure/src/main/java/com/netgroup/repository/inventory_system/StorageRepositoryImpl.java:679,1677927600:42,1678035600:327,1678039200:280,1678118400:30,m
+infrastructure/src/main/java/com/netgroup/repository/inventory_system/ItemRepositoryImpl.java:620,1677927600:139,1678032000:120,1678035600:121,1678039200:210,1678118400:30,m
