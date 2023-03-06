@@ -1,0 +1,14 @@
+[ver:1,total:4898,branch:main]
+infrastructure/src/main/java/com/netgroup/repository/payment/PaymentRepositoryImpl.java:1350,1678122000:460,1678129200:890,r
+usecase/src/main/java/com/netgroup/usecase/payment/PaymentServiceImpl.java:768,1678122000:391,1678129200:377,r
+.gtm/Spring Boot-> InventoryV2Application.app:619,1678132800:619,r
+entity/src/main/java/com/netgroup/entity/inventory_system/Payment.java:555,1678118400:375,1678122000:180,d
+usecase/src/main/java/com/netgroup/usecase/payment/api/PaymentService.java:324,1678122000:265,1678129200:59,r
+infrastructure/src/main/java/com/netgroup/repository/payment/model/PaymentModel.java:323,1678122000:323,r
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/PaymentRepository.java:297,1678118400:237,1678122000:60,d
+entity/src/main/java/com/netgroup/entity/payment/Payment.java:271,1678122000:30,1678129200:154,1678132800:87,m
+entity/src/main/java/module-info.java:180,1678122000:180,m
+usecase/src/main/java/com/netgroup/usecase/payment/api/PaymentRepository.java:109,1678122000:89,1678129200:20,r
+usecase/src/main/java/com/netgroup/usecase/inventory_system/InventorySystemServiceImpl.java:83,1678118400:48,1678122000:35,r
+infrastructure/src/main/java/com/netgroup/repository/inventory_system/StorageRepositoryImpl.java:12,1678132800:12,r
+infrastructure/src/main/java/com/netgroup/repository/inventory_system/model/ItemModel.java:7,1678122000:7,r
