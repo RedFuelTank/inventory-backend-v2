@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class StorageRepositoryImpl implements StorageRepository {
@@ -18,14 +19,15 @@ public class StorageRepositoryImpl implements StorageRepository {
 
     @Override
     @Transactional
-    public List<Storage> getSubStoragesBy(int storageId, String businessName) {
-        TypedQuery<StorageModel> query = manager.createQuery("select s from StorageModel s where upperStorageId = :storageId and name = :name", StorageModel.class);
-        query.setParameter("upperStorageId", storageId);
-        query.setParameter("name", businessName);
+    public List<Storage> getSubStoragesBy(Optional<Long> storageId, String businessName) {
+        TypedQuery<StorageModel> query = manager.createQuery("select s from StorageModel s where (:storageId is null or upperStorageId = :storageId) and businessName = :businessName", StorageModel.class);
+        query.setParameter("storageId", storageId.orElse(null));
+        query.setParameter("businessName", businessName);
 
         return query.getResultStream().map(s -> Storage.builder()
                 .id(s.getId())
                 .name(s.getName())
+                .businessName(s.getBusinessName())
                 .upperStorageId(s.getUpperStorageId())
                 .build()).toList();
     }

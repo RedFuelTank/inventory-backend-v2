@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class ItemRepositoryImpl implements ItemRepository {
@@ -18,14 +19,15 @@ public class ItemRepositoryImpl implements ItemRepository {
 
     @Override
     @Transactional
-    public List<Item> getStorageItemsBy(int storageId, String businessName) {
-        TypedQuery<ItemModel> query = manager.createQuery("select i from ItemModel i where storageId = :storageId and name = :name", ItemModel.class);
-        query.setParameter("storageId", storageId);
-        query.setParameter("name", businessName);
+    public List<Item> getStorageItemsBy(Optional<Long> possibleStorageId, String businessName) {
+        TypedQuery<ItemModel> query = manager.createQuery("select i from ItemModel i where storageId = :storageId and businessName = :businessName", ItemModel.class);
+        query.setParameter("storageId", possibleStorageId.orElse(null));
+        query.setParameter("businessName", businessName);
 
         return query.getResultStream().map(s -> Item.builder()
                 .id(s.getId())
                 .name(s.getName())
+                .businessName(s.getBusinessName())
                 .storageId(s.getStorageId())
                 .build()).toList();
     }
