@@ -56,4 +56,24 @@ public class InventorySystemServiceImpl implements InventorySystemService {
         itemDto.setId(itemRepository.saveItem(item).getId());
         return itemDto;
     }
+
+    @Override
+    public ItemDto deleteItem(Long id, String businessName) {
+        Item item = itemRepository.deleteItem(id, businessName);
+        return ItemDto.builder()
+                .id(item.getId())
+                .name(item.getName())
+                .storageId(item.getStorageId())
+                .build();
+    }
+
+    @Override
+    public StorageDto deleteStorage(Long id, String businessName) {
+        Storage storage = storageRepository.deleteStorage(id, businessName);
+        return StorageDto.builder()
+                .id(storage.getId())
+                .name(storage.getName())
+                .upperStorageId(storage.getUpperStorageId())
+                .build();
+    }
 }

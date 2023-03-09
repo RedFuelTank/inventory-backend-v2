@@ -9,4 +9,6 @@ public interface ItemRepository {
     List<Item> getStorageItemsBy(Optional<Long> storageId, String businessName);
 
     Item saveItem(Item item);
+
+    Item deleteItem(Long id, String businessName);
 }
