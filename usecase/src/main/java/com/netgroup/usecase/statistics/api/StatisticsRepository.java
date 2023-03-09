@@ -18,4 +18,6 @@ public interface StatisticsRepository {
                                           Pageable pageable);
 
     void addItemToStatistics(Item item);
+
+    void setItemOutdated(Long id, String businessName);
 }
