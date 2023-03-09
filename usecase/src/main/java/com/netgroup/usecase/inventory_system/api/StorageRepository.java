@@ -1,5 +1,6 @@
 package com.netgroup.usecase.inventory_system.api;
 
+import com.netgroup.entity.inventory_system.Item;
 import com.netgroup.entity.inventory_system.Storage;
 
 import java.util.List;
@@ -9,4 +10,6 @@ public interface StorageRepository {
     List<Storage> getSubStoragesBy(Optional<Long> storageId, String businessName);
 
     Storage saveStorage(Storage storage);
+
+    Storage deleteStorage(Long id, String businessName);
 }

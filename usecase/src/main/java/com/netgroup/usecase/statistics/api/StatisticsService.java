@@ -17,4 +17,6 @@ public interface StatisticsService {
                                           Pageable pageable);
 
     void addItemToStatistics(ItemDto itemDto, String businessName);
+
+    void setItemOutdated(Long id, String businessName);
 }

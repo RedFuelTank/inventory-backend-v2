@@ -61,5 +61,8 @@ public class StatisticsServiceImpl implements StatisticsService {
                 .build());
     }
 
-
+    @Override
+    public void setItemOutdated(Long id, String businessName) {
+        repository.setItemOutdated(id, businessName);
+    }
 }
