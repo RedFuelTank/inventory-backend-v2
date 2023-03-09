@@ -1,0 +1,5 @@
+[ver:1,total:1116,branch:main]
+.gtm/Spring Boot-> InventoryV2Application.app:813,1678388400:813,r
+usecase/src/main/java/com/netgroup/usecase/statistics/api/StatisticsService.java:132,1678384800:132,m
+usecase/src/main/java/com/netgroup/usecase/statistics/StatisticsServiceImpl.java:118,1678384800:118,m
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/StorageRepository.java:53,1678384800:53,m
