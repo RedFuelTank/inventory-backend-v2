@@ -20,7 +20,7 @@ public class ItemRepositoryImpl implements ItemRepository {
     @Override
     @Transactional
     public List<Item> getStorageItemsBy(Optional<Long> possibleStorageId, String businessName) {
-        TypedQuery<ItemModel> query = manager.createQuery("select i from ItemModel i where storageId = :storageId and businessName = :businessName", ItemModel.class);
+        TypedQuery<ItemModel> query = manager.createQuery("select i from ItemModel i where (:storageId is null or storageId = :storageId) and businessName = :businessName", ItemModel.class);
         query.setParameter("storageId", possibleStorageId.orElse(null));
         query.setParameter("businessName", businessName);
 
