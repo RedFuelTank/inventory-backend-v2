@@ -1,0 +1,14 @@
+[ver:1,total:7697,branch:main]
+usecase/src/main/java/com/netgroup/usecase/statistics/StatisticsServiceImpl.java:2106,1678212000:150,1678215600:964,1678273200:534,1678276800:408,1678384800:50,r
+.gtm/Spring Boot-> InventoryV2Application.app:1989,1678201200:144,1678204800:780,1678208400:240,1678273200:645,1678276800:180,r
+infrastructure/src/main/java/com/netgroup/repository/statistics/StatisticsJpaRepository.java:766,1678273200:766,r
+usecase/src/main/java/com/netgroup/usecase/statistics/api/StatisticsService.java:717,1678212000:35,1678215600:560,1678273200:112,1678384800:10,r
+usecase/src/main/java/com/netgroup/usecase/statistics/api/StatisticsRepository.java:514,1678212000:95,1678215600:254,1678273200:157,1678276800:8,r
+ui/src/main/java/com/netgroup/web/statistics/StatisticsController.java:462,1678276800:462,r
+entity/src/main/java/com/netgroup/entity/statistics/Statistics.java:369,1678212000:165,1678276800:204,m
+infrastructure/src/main/java/com/netgroup/repository/statistics/model/StatisticsModel.java:344,1678273200:329,1678276800:15,r
+usecase/src/main/java/com/netgroup/usecase/statistics/api/StatisticsDto.java:250,1678212000:155,1678276800:95,r
+infrastructure/src/main/java/com/netgroup/repository/statistics/StatisticsRepositoryImpl.java:153,1678215600:86,1678273200:67,d
+entity/src/main/java/module-info.java:12,1678273200:12,m
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/ItemDto.java:8,1678276800:8,r
+infrastructure/src/main/java/com/netgroup/repository/payment/model/PaymentModel.java:7,1678273200:7,r
