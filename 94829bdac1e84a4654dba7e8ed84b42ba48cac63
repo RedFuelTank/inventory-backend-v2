@@ -1,0 +1,4 @@
+[ver:1,total:247,branch:main]
+usecase/src/main/java/com/netgroup/usecase/inventory_system/InventorySystemServiceImpl.java:138,1678384800:138,m
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/InventorySystemService.java:84,1678384800:84,m
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/ItemRepository.java:25,1678384800:25,m
