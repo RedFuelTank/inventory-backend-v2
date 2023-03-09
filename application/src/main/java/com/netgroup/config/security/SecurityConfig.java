@@ -43,7 +43,8 @@ public class SecurityConfig {
 
             http.securityMatcher("/user/**")
                     .authorizeHttpRequests()
-                    .requestMatchers("/user/register").permitAll();
+                    .requestMatchers("/user/register").permitAll()
+                    .requestMatchers("/user/**").hasAuthority("REPRESENTATIVE");
 
             AuthenticationManagerBuilder sharedObject = http.getSharedObject(AuthenticationManagerBuilder.class);
             configAuthentication(sharedObject, dataSource);
@@ -69,7 +70,8 @@ public class SecurityConfig {
 
             http.securityMatcher("/business/**")
                     .authorizeHttpRequests()
-                    .requestMatchers("/business/register").permitAll();
+                    .requestMatchers("/business/register").permitAll()
+                    .requestMatchers("/business/**").hasAuthority("BUSINESS");
 
             AuthenticationManagerBuilder sharedObject = http.getSharedObject(AuthenticationManagerBuilder.class);
             configAuthentication(sharedObject, dataSource);
