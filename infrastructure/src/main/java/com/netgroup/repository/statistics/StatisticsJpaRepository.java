@@ -8,8 +8,10 @@ import com.netgroup.usecase.statistics.api.StatisticsRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
@@ -37,5 +39,12 @@ public interface StatisticsJpaRepository extends StatisticsRepository, JpaReposi
                 .name(item.getName())
                 .startDate(new Date())
                 .build());
-    };
+    }
+
+    @Override
+    @Modifying
+    @Transactional
+    @Query("update StatisticsModel set endDate = CURRENT_TIMESTAMP where id = :id and businessName = :businessName")
+    void setItemOutdated(@Param("id") Long id,
+                         @Param("businessName") String businessName);
 }
