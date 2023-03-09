@@ -47,4 +47,22 @@ public class StorageRepositoryImpl implements StorageRepository {
         return storage;
     }
 
+    @Override
+    @Transactional
+    public Storage deleteStorage(Long id, String businessName) {
+        TypedQuery<StorageModel> query = manager.createQuery("select s from StorageModel s where id = :id and businessName = :businessName", StorageModel.class);
+        query.setParameter("id", id);
+        query.setParameter("businessName", businessName);
+
+        StorageModel storage = query.getResultStream().findFirst().orElseThrow(IllegalArgumentException::new);
+        manager.remove(storage);
+
+        return Storage.builder()
+                .id(storage.getId())
+                .name(storage.getName())
+                .businessName(storage.getBusinessName())
+                .upperStorageId(storage.getUpperStorageId())
+                .build();
+    }
+
 }

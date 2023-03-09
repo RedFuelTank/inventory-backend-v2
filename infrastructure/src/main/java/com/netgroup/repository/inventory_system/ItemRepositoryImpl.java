@@ -46,4 +46,23 @@ public class ItemRepositoryImpl implements ItemRepository {
 
         return item;
     }
+
+    @Override
+    @Transactional
+    public Item deleteItem(Long id, String businessName) {
+        TypedQuery<ItemModel> query = manager.createQuery("select i from ItemModel i where id = :id and businessName = :businessName", ItemModel.class);
+        query.setParameter("id", id);
+        query.setParameter("businessName", businessName);
+
+        ItemModel item = query.getResultStream().findFirst().orElseThrow(IllegalArgumentException::new);
+
+        manager.remove(item);
+
+        return Item.builder()
+                .id(item.getId())
+                .businessName(item.getBusinessName())
+                .storageId(item.getStorageId())
+                .name(item.getName())
+                .build();
+    }
 }
