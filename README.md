@@ -3,17 +3,20 @@
 ## Preface
 
 Decisions, especially those related to architecture were made by me in order to explore new possibilities in development. These solutions may not be optimal for such a small task.  Basically, my inspiration was the book "Clean Architecture" by Robert Martin
+This is already second version of this project. You can find first version in my GitHub.
 
 ## Introduction
 
-This project was developed for NetGroup Estonia in 2023. year. 
+This project was developed for NetGroup Estonia in 2023 year. 
+This is a multi-module application that implements the ability to create an inventory as a business user as well as to create business users as a representative. 
+This application also includes a payment functionality, statistics for the user's items and the ability to upload pictures for the user's items. All changes can only be made by the business user himself
 
 ### Technologies
 * Spring
 * Hibernate JPA
 * Maven
 * PostgreSQL
-* Liquibase 
+* Liquibase Migration
 
 ## Architecture
 
