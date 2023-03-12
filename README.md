@@ -28,6 +28,7 @@ The adapter layer mediates between different forms of data and acts as a transla
 All dependencies are directed upwards, each higher layer knows nothing about the lower ones, and the more upwards the more stable and important the layer.
 
 ## End points
+Endpoints via Swagger - UI: ```http://{server}:{port}/api/swagger-ui/index.html#/```
 
 <details>
  <summary><code>POST</code> <code><b>/business/registration</b></code> <code>Registrates a new business</code></summary>
