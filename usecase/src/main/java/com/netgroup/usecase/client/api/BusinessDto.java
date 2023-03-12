@@ -1,12 +1,11 @@
 package com.netgroup.usecase.client.api;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
 
 @Setter
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class BusinessDto {
     @NonNull
