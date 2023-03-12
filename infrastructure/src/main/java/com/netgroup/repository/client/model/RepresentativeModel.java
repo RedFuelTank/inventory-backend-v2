@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "representatives")
+@Table(name = "users")
 public class RepresentativeModel {
     @Id
     @Column(name = "username")
