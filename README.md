@@ -125,6 +125,72 @@ All dependencies are directed upwards, each higher layer knows nothing about the
 | `200`     | `application/json` | `Content has been created provided` |                                                              |
 </details>
 
+<details>
+ <summary><code>DELETE</code> <code><b>/business/item/{id}</b></code> <code>Delete item by id</code></summary>
+
+##### Parameters
+
+| name | type     | data type | description |
+|------|----------|-----------|-------------|
+| id   | required | number    |             |
+
+##### Responses
+
+| http code | content-type       | response                |
+|-----------|--------------------|-------------------------|
+| `200`     | `application/json` | `Item has been deleted` |                                                              |
+</details>
+
+<details>
+ <summary><code>DELETE</code> <code><b>/business/storage/{id}</b></code> <code>Delete storage by id</code></summary>
+
+##### Parameters
+
+| name | type     | data type | description |
+|------|----------|-----------|-------------|
+| id   | required | number    |             |
+
+##### Responses
+
+| http code | content-type       | response                   |
+|-----------|--------------------|----------------------------|
+| `200`     | `application/json` | `Storage has been deleted` |                                                              |
+</details>
+
+<details>
+ <summary><code>POST</code> <code><b>/business/upload/image</b></code> <code>Upload image for item</code></summary>
+
+##### Parameters
+
+| name  | type     | data type | description |
+|-------|----------|-----------|-------------|
+| files | required | file      |             |
+
+##### Responses
+
+| http code | content-type       | response   |
+|-----------|--------------------|------------|
+| `200`     | `application/json` | `Uploaded` |                                                              |
+</details>
+
+<details>
+ <summary><code>GET</code> <code><b>/business/load/image/{id}</b></code> <code>Load image by item id</code></summary>
+
+##### Parameters
+
+| name | type     | data type | description |
+|------|----------|-----------|-------------|
+| id   | required | file      |             |
+
+##### Responses
+
+| http code | content-type       | response         |
+|-----------|--------------------|------------------|
+| `200`     | `application/json` | `Image as bytes` |                                                              |
+</details>
+
+
+
 
 
 
