@@ -1,0 +1,4 @@
+[ver:1,total:1199,branch:main]
+application/src/main/resources/db/changelog/db.changelog-master.xml:891,1678129200:220,1678132800:170,1678273200:121,1678388400:120,1678561200:240,1678604400:20,m
+application/src/main/java/com/netgroup/config/security/SecurityConfig.java:284,1678464000:150,1678561200:94,1678604400:40,m
+infrastructure/src/main/java/com/netgroup/repository/client/model/RepresentativeModel.java:24,1678561200:24,m
