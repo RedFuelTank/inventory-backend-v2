@@ -1,0 +1,8 @@
+[ver:1,total:5063,branch:main]
+.gtm/Spring Boot-> InventoryV2Application.app:4584,1678388400:91,1678464000:531,1678467600:480,1678474800:250,1678525200:1392,1678528800:240,1678561200:1120,1678564800:60,1678604400:420,r
+usecase/src/main/java/com/netgroup/usecase/client/api/RepresentativeDto.java:196,1678525200:16,1678528800:180,r
+ui/src/main/java/com/netgroup/web/statistics/StatisticsController.java:180,1678561200:180,r
+application/src/main/java/com/netgroup/config/security/jwt/JwtAuthenticationFilter.java:60,1678467600:60,r
+entity/src/main/java/com/netgroup/entity/inventory_system/Storage.java:27,1678525200:27,m
+.gtm/Application-> SecurityConfig.app:10,1678561200:10,r
+infrastructure/src/main/java/com/netgroup/repository/inventory_system/model/StorageModel.java:6,1678525200:6,r
