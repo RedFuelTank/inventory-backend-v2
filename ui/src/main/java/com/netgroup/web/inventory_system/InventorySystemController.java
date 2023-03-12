@@ -1,5 +1,7 @@
 package com.netgroup.web.inventory_system;
 
+import com.netgroup.usecase.image.api.ImageDto;
+import com.netgroup.usecase.image.api.ImageService;
 import com.netgroup.usecase.inventory_system.api.InventorySystemService;
 import com.netgroup.usecase.inventory_system.api.ItemDto;
 import com.netgroup.usecase.inventory_system.api.StorageDto;
@@ -10,9 +12,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -24,6 +29,7 @@ public class InventorySystemController {
     private final InventorySystemService inventoryService;
     private final PaymentService paymentService;
     private final StatisticsService statisticsService;
+    private final ImageService imageService;
 
     @GetMapping("/storage")
     public Page<Object> getStorageContent(@RequestParam(name = "storageId", required = false) Optional<Long> possibleUpperStorageId, Authentication auth, Pageable pageable) {
@@ -98,5 +104,26 @@ public class InventorySystemController {
     @DeleteMapping("/storage/{id}")
     public StorageDto deleteStorage(@PathVariable Long id, Authentication auth) {
         return inventoryService.deleteStorage(id, auth.getName());
+    }
+
+    @PostMapping("/upload/image")
+    public String uploadImage(@RequestParam(name = "files") MultipartFile files, Authentication auth) {
+        try {
+            imageService.uploadImage(0L, auth.getName(), files.getBytes());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return "Uploaded";
+    }
+
+    @GetMapping(value = "/load/image/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
+    public byte[] loadImage(@PathVariable Long id, Authentication authentication) {
+        ImageDto image = imageService.getImageBy(id);
+
+        if (image == null) {
+            throw new IllegalArgumentException();
+        }
+
+        return image.getData();
     }
 }
