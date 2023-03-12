@@ -1,0 +1,3 @@
+[ver:1,total:60,branch:main]
+application/src/main/resources/db/changelog/db.changelog-master.xml:30,1678604400:30,m
+application/src/main/java/com/netgroup/config/security/SecurityConfig.java:30,1678604400:30,r
