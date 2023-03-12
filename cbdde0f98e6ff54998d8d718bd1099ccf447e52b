@@ -1,0 +1,45 @@
+[ver:1,total:20391,branch:main]
+application/src/test/java/com/netgroup/web/client/ClientControllerTest.java:3470,1678611600:1052,1678615200:2093,1678618800:325,r
+.gtm/Spring Boot-> InventoryV2Application.app:3436,1678608000:120,1678618800:135,1678626000:320,1678629600:1083,1678633200:918,1678636800:860,r
+ui/src/test/java/com/netgroup/web/client/ClientControllerTest.java:2670,1678604400:245,1678608000:1587,1678611600:838,d
+application/src/test/java/com/netgroup/web/inventory_system/InventorySystemControllerTest.java:1954,1678618800:1410,1678622400:544,r
+README.md:1140,1678640400:1140,m
+ui/src/test/java/com/netgroup/web/client/ClientRequestBuilder.java:817,1678604400:400,1678608000:380,1678611600:37,d
+application/src/test/java/com/netgroup/web/client/ClientRequestBuilder.java:717,1678611600:471,1678615200:187,1678618800:39,1678622400:20,r
+.gtm/JUnit-> ClientControllerTest$RegisterBusiness.shouldReturnHttpResponseCodeCreated (1).app:669,1678615200:648,1678618800:21,r
+infrastructure/src/main/java/com/netgroup/repository/image/ImageRepositoryImpl.java:604,1678622400:317,1678633200:107,1678636800:180,r
+usecase/src/main/java/com/netgroup/usecase/image/ImageServiceImpl.java:512,1678622400:223,1678626000:90,1678633200:99,1678636800:100,r
+entity/src/main/java/com/netgroup/entity/image/Image.java:485,1678622400:365,1678626000:90,1678633200:30,r
+usecase/src/main/java/com/netgroup/usecase/image/api/ImageService.java:436,1678622400:99,1678633200:289,1678636800:48,r
+ui/src/main/java/com/netgroup/web/HelloController.java:300,1678604400:300,r
+application/src/test/java/com/netgroup/config/WebTestConfig.java:296,1678611600:34,1678615200:202,1678618800:60,r
+.gtm/JUnit-> ClientControllerTest$RegisterRepresentative (1).app:218,1678611600:81,1678615200:108,1678618800:29,r
+infrastructure/src/main/java/com/netgroup/repository/payment/PaymentRepositoryImpl.java:214,1678622400:214,r
+.gtm/JUnit-> ClientControllerTest$RegisterBusiness.shouldReturnHttpResponseCodeCreated.app:197,1678608000:22,1678611600:175,r
+.gtm/JUnit-> ClientControllerTest$RegisterRepresentative.shouldReturnHttpResponseCodeCreated.app:189,1678608000:177,1678618800:12,r
+.gtm/JUnit-> ClientControllerTest$RegisterBusiness.app:185,1678608000:165,1678615200:20,r
+infrastructure/src/main/java/com/netgroup/repository/image/model/ImageModel.java:178,1678622400:166,1678626000:12,r
+application/src/test/java/com/netgroup/web/inventory_system/InventorySystemRequestBuilder.java:171,1678618800:51,1678622400:120,r
+application/src/test/java/com/netgroup/InventoryV2ApplicationTest.java:170,1678611600:170,d
+ui/src/test/java/provider/ClientImplProvider.java:170,1678608000:162,1678611600:8,r
+.gtm/JUnit-> InventorySystemControllerTest$GetStorageContent.app:140,1678622400:140,r
+.gtm/JUnit-> ClientControllerTest (1).app:138,1678611600:138,r
+.gtm/JUnit-> ClientControllerTest.app:125,1678608000:29,1678618800:96,r
+ui/src/test/java/config/ClientImplProvider.java:120,1678608000:120,d
+ui/src/test/java/com/netgroup/ControllerTest.java:116,1678611600:116,r
+usecase/src/main/java/com/netgroup/usecase/image/api/ImageRepository.java:111,1678622400:72,1678633200:19,1678636800:20,r
+.gtm/JUnit-> ClientControllerTest.test.app:84,1678611600:36,1678615200:42,1678618800:6,r
+entity/src/main/java/com/netgroup/entity/payment/Payment.java:60,1678622400:60,r
+usecase/src/main/java/com/netgroup/usecase/image/api/ImageDto.java:45,1678633200:45,r
+ui/src/test/java/config/WebTestConfig.java:43,1678608000:37,1678611600:6,r
+usecase/src/main/java/com/netgroup/usecase/payment/api/PaymentService.java:40,1678622400:40,r
+infrastructure/src/main/java/com/netgroup/repository/image/ImageModel.java:30,1678622400:30,d
+application/src/main/java/com/netgroup/InventoryV2Application.java:27,1678611600:20,1678618800:7,r
+application/src/test/java/com/netgroup/web/client/provider/ClientImplProvider.java:23,1678611600:23,r
+usecase/src/main/java/com/netgroup/usecase/payment/PaymentServiceImpl.java:20,1678622400:20,r
+.gtm/JUnit-> ClientControllerTest$RegisterRepresentative.app:20,1678608000:20,r
+.gtm/JUnit-> InventorySystemControllerTest$GetStorageContent.shouldReturnCorrectTotalElements.app:17,1678622400:17,r
+mvnw.cmd:12,1678608000:12,r
+pom.xml:8,1678618800:8,r
+.gtm/JUnit-> InventorySystemControllerTest$GetStorageContent.shouldReturnCorrectNumberElements.app:8,1678622400:8,r
+infrastructure/src/main/java/com/netgroup/repository/inventory_system/model/ItemModel.java:6,1678622400:6,r
