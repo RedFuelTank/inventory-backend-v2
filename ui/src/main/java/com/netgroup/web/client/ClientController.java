@@ -17,12 +17,15 @@ public class ClientController {
     private final ClientService clientService;
     private final PaymentService paymentService;
 
-    @PostMapping("/user/register")
+    @PostMapping("/user/registration")
     public RepresentativeDto register(@RequestBody RepresentativeDto representativeDto) {
+        System.out.println(representativeDto.getUsername());
+        System.out.println(representativeDto.getPassword());
+
         return clientService.registerUser(representativeDto);
     }
 
-    @PostMapping("/business/register")
+    @PostMapping("/business/registration")
     public BusinessDto registerBusiness(@RequestBody BusinessDto businessDto, Authentication auth) {
         BusinessDto business = clientService.registerBusiness(auth.getName(), businessDto);
         paymentService.createPayment(business.getName());
