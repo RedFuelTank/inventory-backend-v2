@@ -96,4 +96,32 @@ public class InventorySystemServiceImpl implements InventorySystemService {
                 .upperStorageId(storage.getUpperStorageId())
                 .build();
     }
+
+    @Override
+    public Page<ItemDto> findItemsBy(String name, String businessName, Pageable pageable) {
+        Page<Item> itemsPage = itemRepository.findItemsBy(name, businessName, pageable);
+
+        List<Item> items = itemsPage.getContent();
+        List<ItemDto> itemDtos = items.stream().map(i -> ItemDto.builder()
+                .id(i.getId())
+                .name(i.getName())
+                .storageId(i.getStorageId())
+                .build()).toList();
+
+        return new PageImpl<>(itemDtos, pageable, itemsPage.getTotalElements());
+    }
+
+    @Override
+    public Page<StorageDto> findStoragesBy(String name, String businessName, Pageable pageable) {
+        Page<Storage> storagesPage = storageRepository.findStoragesBy(name, businessName, pageable);
+
+        List<Storage> storages = storagesPage.getContent();
+        List<StorageDto> storageDtos = storages.stream().map(s -> StorageDto.builder()
+                .id(s.getId())
+                .name(s.getName())
+                .upperStorageId(s.getUpperStorageId())
+                .build()).toList();
+
+        return new PageImpl<>(storageDtos, pageable, storagesPage.getTotalElements());
+    }
 }
