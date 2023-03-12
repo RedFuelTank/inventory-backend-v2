@@ -20,8 +20,8 @@ public class ClientServiceImpl implements ClientService {
                 .build());
 
         return RepresentativeDto.builder()
-                .username("Mock Representative")
-                .password("Mock Password")
+                .username(register.getUsername())
+                .password(register.getPassword())
                 .build();
     }
 
