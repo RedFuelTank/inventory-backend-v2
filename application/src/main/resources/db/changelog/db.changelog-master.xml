@@ -111,4 +111,59 @@
             </column>
         </createTable>
     </changeSet>
+
+    <changeSet id="V7__ADD_PAYMENT_TABLE" author="">
+        <createTable tableName="payments">
+            <column name="business_name" type="varchar(255)">
+                <constraints foreignKeyName="fk_payment_business_name" references="businesses(name)" deleteCascade="true" primaryKey="true"/>
+            </column>
+            <column name="free_amount" type="bigint"/>
+            <column name="total_amount" type="bigint"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="V8__ADD_PAYMENT_BUSINESS" author="">
+        <insert tableName="payments">
+            <column name="business_name" value="Testable"/>
+            <column name="total_amount" value="0"/>
+            <column name="free_amount" value="10"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="V9__CREATE_STATISTICS_TABLE" author="">
+        <createTable tableName="Statistics">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="business_name" type="varchar(255)">
+                <constraints foreignKeyName="fk_statistics_business_name" references="businesses(name)" deleteCascade="true"/>
+            </column>
+            <column name="item_id" type="bigint" >
+                <constraints unique="true"/>
+            </column>
+            <column name="start_date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="end_date" type="date"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="Statistics" baseColumnNames="item_id"
+                                 constraintName="fk_statistics_item_id"
+                                 referencedTableName="Items"
+                                 referencedColumnNames="id" onDelete="SET NULL"/>
+    </changeSet>
+
+    <changeSet id="V10__ADD_ADMIN" author="">
+        <insert tableName="users">
+            <column name="username" value="admin"/>
+            <column name="password" value="$2a$10$303b39izKKjXJjg/UXbyi.qCWWRvRmWQ1TOD0HjKrWwQ3rfT2RZ2q"/>
+            <column name="enabled" value="true"/>
+        </insert>
+        <insert tableName="Authorities">
+            <column name="username" value="admin"/>
+            <column name="authority" value="ADMIN"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>
