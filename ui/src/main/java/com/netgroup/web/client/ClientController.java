@@ -30,4 +30,9 @@ public class ClientController {
 
         return business;
     }
+
+    @GetMapping("/business/credit")
+    public double getCredit(Authentication auth) {
+        return paymentService.getCredit(auth.getName());
+    }
 }
