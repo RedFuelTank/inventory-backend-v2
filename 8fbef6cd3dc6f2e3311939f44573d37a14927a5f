@@ -1,0 +1,4 @@
+[ver:1,total:4719,branch:main]
+infrastructure/src/main/java/com/netgroup/repository/inventory_system/ItemRepositoryImpl.java:3463,1678471200:824,1678474800:791,1678525200:588,1678564800:600,1678600800:600,1678604400:60,m
+infrastructure/src/main/java/com/netgroup/repository/inventory_system/StorageRepositoryImpl.java:1158,1678388400:9,1678446000:180,1678474800:344,1678525200:359,1678600800:266,m
+infrastructure/src/main/java/com/netgroup/repository/statistics/StatisticsJpaRepository.java:98,1678474800:27,1678525200:71,m
