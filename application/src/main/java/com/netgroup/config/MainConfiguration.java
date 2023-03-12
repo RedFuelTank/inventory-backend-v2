@@ -3,6 +3,9 @@ package com.netgroup.config;
 import com.netgroup.usecase.client.ClientServiceImpl;
 import com.netgroup.usecase.client.api.ClientRepository;
 import com.netgroup.usecase.client.api.ClientService;
+import com.netgroup.usecase.image.ImageServiceImpl;
+import com.netgroup.usecase.image.api.ImageRepository;
+import com.netgroup.usecase.image.api.ImageService;
 import com.netgroup.usecase.inventory_system.InventorySystemServiceImpl;
 import com.netgroup.usecase.inventory_system.api.InventorySystemService;
 import com.netgroup.usecase.inventory_system.api.ItemRepository;
@@ -36,5 +39,10 @@ public class MainConfiguration {
     @Bean
     public StatisticsService statisticsService(StatisticsRepository statisticsRepository) {
         return new StatisticsServiceImpl(statisticsRepository);
+    }
+
+    @Bean
+    public ImageService imageService(ImageRepository imageRepository) {
+        return new ImageServiceImpl(imageRepository);
     }
 }
