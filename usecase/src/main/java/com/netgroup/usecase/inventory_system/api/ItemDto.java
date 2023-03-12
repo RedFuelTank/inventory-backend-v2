@@ -13,4 +13,6 @@ public class ItemDto {
     @NonNull
     private String name;
     private Long storageId;
+    @Builder.Default
+    private String type = "ITEM";
 }

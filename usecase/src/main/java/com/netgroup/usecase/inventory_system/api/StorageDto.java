@@ -13,4 +13,6 @@ public class StorageDto {
     @NonNull
     private String name;
     private Long upperStorageId;
+    @Builder.Default
+    private String type = "STORAGE";
 }
