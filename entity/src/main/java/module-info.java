@@ -4,4 +4,5 @@ module com.netgroup.entity {
     exports com.netgroup.entity.inventory_system;
     exports com.netgroup.entity.payment;
     exports com.netgroup.entity.statistics;
+    exports com.netgroup.entity.image;
 }
