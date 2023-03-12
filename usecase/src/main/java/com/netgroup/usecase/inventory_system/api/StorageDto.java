@@ -1,18 +1,16 @@
 package com.netgroup.usecase.inventory_system.api;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
+import lombok.*;
 
 @Builder
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class StorageDto {
     private Long id;
     @NonNull
     private String name;
     private Long upperStorageId;
-    @Builder.Default
-    private String type = "STORAGE";
+    private final String type = "STORAGE";
 }
