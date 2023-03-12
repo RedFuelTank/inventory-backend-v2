@@ -3,66 +3,92 @@ package com.netgroup.repository.inventory_system;
 import com.netgroup.entity.inventory_system.Item;
 import com.netgroup.repository.inventory_system.model.ItemModel;
 import com.netgroup.usecase.inventory_system.api.ItemRepository;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.TypedQuery;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
-import java.util.Optional;
 
-@Repository
-public class ItemRepositoryImpl implements ItemRepository {
-    @PersistenceContext
-    private EntityManager manager;
+import static java.util.stream.Collectors.toList;
+
+public interface ItemRepositoryImpl extends ItemRepository,
+        PagingAndSortingRepository<ItemModel, Long>,
+        JpaRepository<ItemModel, Long> {
+
+    Page<ItemModel> findAllByStorageIdAndBusinessName(Long storageId,
+                                                      String businessName,
+                                                      Pageable pageable);
+
+    Page<ItemModel> findAllByNameLikeAndBusinessName(String name,
+                                                     String businessName,
+                                                     Pageable pageable);
+
+    ItemModel findItemModelByIdAndBusinessName(Long id, String businessName);
 
     @Override
-    @Transactional
-    public List<Item> getStorageItemsBy(Optional<Long> possibleStorageId, String businessName) {
-        TypedQuery<ItemModel> query = manager.createQuery("select i from ItemModel i where (:storageId is null or storageId = :storageId) and businessName = :businessName", ItemModel.class);
-        query.setParameter("storageId", possibleStorageId.orElse(null));
-        query.setParameter("businessName", businessName);
+    default Page<Item> getStorageItemsBy(Long storageId, String businessName, Pageable pageable) {
+        Page<ItemModel> itemModelsPage = findAllByStorageIdAndBusinessName(storageId, businessName, pageable);
 
-        return query.getResultStream().map(s -> Item.builder()
-                .id(s.getId())
-                .name(s.getName())
-                .businessName(s.getBusinessName())
-                .storageId(s.getStorageId())
+        List<ItemModel> itemModels = itemModelsPage.getContent();
+        List<Item> items = itemModels.stream().map(i -> Item.builder()
+                .id(i.getId())
+                .name(i.getName())
+                .businessName(i.getBusinessName())
+                .storageId(i.getStorageId())
                 .build()).toList();
+
+        return new PageImpl<>(items, pageable, itemModelsPage.getTotalElements());
     }
 
+    ;
+
     @Override
-    @Transactional
-    public Item saveItem(Item item) {
-        ItemModel itemModel = ItemModel.builder()
+    default Item saveItem(Item item) {
+        ItemModel savedItem = save(ItemModel.builder()
                 .name(item.getName())
                 .businessName(item.getBusinessName())
                 .storageId(item.getStorageId())
-                .build();
+                .build());
 
-        manager.persist(itemModel);
-        item.setId(itemModel.getId());
+        item.setId(savedItem.getId());
 
         return item;
     }
 
     @Override
-    @Transactional
-    public Item deleteItem(Long id, String businessName) {
-        TypedQuery<ItemModel> query = manager.createQuery("select i from ItemModel i where id = :id and businessName = :businessName", ItemModel.class);
-        query.setParameter("id", id);
-        query.setParameter("businessName", businessName);
+    default Item deleteItem(Long id, String businessName) {
+        ItemModel itemModel = findItemModelByIdAndBusinessName(id, businessName);
 
-        ItemModel item = query.getResultStream().findFirst().orElseThrow(IllegalArgumentException::new);
+        if (itemModel == null) {
+            throw new IllegalArgumentException();
+        }
 
-        manager.remove(item);
+        delete(itemModel);
 
         return Item.builder()
-                .id(item.getId())
-                .businessName(item.getBusinessName())
-                .storageId(item.getStorageId())
-                .name(item.getName())
+                .id(itemModel.getId())
+                .name(itemModel.getName())
+                .businessName(itemModel.getBusinessName())
+                .storageId(itemModel.getStorageId())
                 .build();
     }
+
+    @Override
+    default Page<Item> findItemsBy(String name, String businessName, Pageable pageable) {
+        Page<ItemModel> itemModelsPage = findAllByNameLikeAndBusinessName(name, businessName, pageable);
+
+        List<ItemModel> itemModels = itemModelsPage.getContent();
+        List<Item> items = itemModels.stream().map(i -> Item.builder()
+                .id(i.getId())
+                .name(i.getName())
+                .storageId(i.getStorageId())
+                .businessName(i.getBusinessName())
+                .build()).toList();
+
+        return new PageImpl<>(items, pageable, itemModelsPage.getTotalElements());
+    }
+
+    ;
 }

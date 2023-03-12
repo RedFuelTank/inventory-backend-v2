@@ -2,7 +2,6 @@ package com.netgroup.repository.statistics;
 
 import com.netgroup.entity.inventory_system.Item;
 import com.netgroup.entity.statistics.Statistics;
-import com.netgroup.repository.inventory_system.model.ItemModel;
 import com.netgroup.repository.statistics.model.StatisticsModel;
 import com.netgroup.usecase.statistics.api.StatisticsRepository;
 import org.springframework.data.domain.Page;
@@ -10,12 +9,15 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
-public interface StatisticsJpaRepository extends StatisticsRepository, JpaRepository<StatisticsModel, Long> {
+public interface StatisticsJpaRepository extends StatisticsRepository,
+        PagingAndSortingRepository<StatisticsModel, Long>,
+        JpaRepository<StatisticsModel, Long> {
     @Override
     @Query(value = "select o from StatisticsModel o where o.businessName = :businessName and o.startDate >= :from and o.endDate <= :to")
     Page<Statistics> getStatisticsFromTo(@Param("businessName") String businessName,
