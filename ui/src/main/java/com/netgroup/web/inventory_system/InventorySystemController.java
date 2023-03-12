@@ -42,4 +42,18 @@ public class InventorySystemController {
 
         return itemDto;
     }
+
+    @DeleteMapping("/item/{id}")
+    public ItemDto deleteItem(@PathVariable Long id, Authentication auth) {
+        statisticsService.setItemOutdated(id, auth.getName());
+        ItemDto itemDto = inventoryService.deleteItem(id, auth.getName());
+        paymentService.decrementTotalAmount(auth.getName());
+
+        return itemDto;
+    }
+
+    @DeleteMapping("/storage/{id}")
+    public StorageDto deleteStorage(@PathVariable Long id, Authentication auth) {
+        return inventoryService.deleteStorage(id, auth.getName());
+    }
 }
