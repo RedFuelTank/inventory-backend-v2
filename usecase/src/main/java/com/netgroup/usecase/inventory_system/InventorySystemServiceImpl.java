@@ -4,6 +4,9 @@ import com.netgroup.entity.inventory_system.Item;
 import com.netgroup.entity.inventory_system.Storage;
 import com.netgroup.usecase.inventory_system.api.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,23 +17,40 @@ public class InventorySystemServiceImpl implements InventorySystemService {
     private final ItemRepository itemRepository;
 
     @Override
-    public List<ItemDto> getStorageItemsBy(Optional<Long> storageId, String businessName) {
-        List<Item> storageItems = itemRepository.getStorageItemsBy(storageId, businessName);
-        return storageItems.stream().map(i -> ItemDto.builder()
+    public Page<ItemDto> getStorageItemsBy(Optional<Long> storageId, String businessName, Pageable pageable) {
+        Page<Item> storageItemsPage = itemRepository.getStorageItemsBy(
+                storageId.orElse(null),
+                businessName,
+                pageable);
+
+        List<Item> storageItems = storageItemsPage.getContent();
+
+        List<ItemDto> storageItemDtos = storageItems.stream().map(i -> ItemDto.builder()
                 .id(i.getId())
-                .storageId(i.getStorageId())
                 .name(i.getName())
+                .storageId(i.getStorageId())
                 .build()).toList();
+
+        return new PageImpl<>(storageItemDtos, pageable, storageItemsPage.getTotalElements());
     }
 
     @Override
-    public List<StorageDto> getSubStoragesBy(Optional<Long> storageId, String businessName) {
-        List<Storage> subStorages = storageRepository.getSubStoragesBy(storageId, businessName);
-        return subStorages.stream().map(s -> StorageDto.builder()
+    public Page<StorageDto> getSubStoragesBy(Optional<Long> storageId, String businessName, Pageable pageable) {
+        Page<Storage> subStoragesPage = storageRepository.getSubStoragesBy(
+                storageId.orElse(null),
+                businessName,
+                pageable
+        );
+
+        List<Storage> subStorages = subStoragesPage.getContent();
+
+        List<StorageDto> subStoragesDtos = subStorages.stream().map(s -> StorageDto.builder()
                 .id(s.getId())
-                .upperStorageId(s.getUpperStorageId())
                 .name(s.getName())
+                .upperStorageId(s.getUpperStorageId())
                 .build()).toList();
+
+        return new PageImpl<>(subStoragesDtos, pageable, subStoragesPage.getTotalElements());
     }
 
     @Override
