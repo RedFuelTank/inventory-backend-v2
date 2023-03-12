@@ -1,14 +1,14 @@
 package com.netgroup.usecase.inventory_system.api;
 
-import com.netgroup.entity.inventory_system.Storage;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
-import java.util.List;
 import java.util.Optional;
 
 public interface InventorySystemService {
-    List<ItemDto> getStorageItemsBy(Optional<Long> storageId, String businessName);
+    Page<ItemDto> getStorageItemsBy(Optional<Long> storageId, String businessName, Pageable pageable);
 
-    List<StorageDto> getSubStoragesBy(Optional<Long> storageId, String businessName);
+    Page<StorageDto> getSubStoragesBy(Optional<Long> storageId, String businessName, Pageable pageable);
 
     StorageDto saveStorage(StorageDto storageDto, String businessName);
 
