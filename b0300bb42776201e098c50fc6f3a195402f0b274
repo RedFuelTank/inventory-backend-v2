@@ -1,0 +1,6 @@
+[ver:1,total:2634,branch:main]
+README.md:1980,1678644000:540,1678647600:1440,m
+.gtm/Maven-> main [org.springframework.boot->spring-boot-maven-plugin->3.0.2->repackage].app:240,1678644000:240,r
+.gtm/Spring Boot-> InventoryV2Application.app:199,1678644000:199,r
+entity/pom.xml:180,1678644000:180,r
+.gtm/Maven-> main [package].app:35,1678644000:35,r
