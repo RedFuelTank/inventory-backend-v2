@@ -6,6 +6,10 @@ import com.netgroup.usecase.inventory_system.api.StorageDto;
 import com.netgroup.usecase.payment.api.PaymentService;
 import com.netgroup.usecase.statistics.api.StatisticsService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,11 +26,50 @@ public class InventorySystemController {
     private final StatisticsService statisticsService;
 
     @GetMapping("/storage")
-    public List<Object> getStorageContent(@RequestParam(name = "storageId", required = false) Optional<Long> possibleUpperStorageId, Authentication auth) {
-        List<ItemDto> storageItems = inventoryService.getStorageItemsBy(possibleUpperStorageId, auth.getName());
-        List<StorageDto> subStorages = inventoryService.getSubStoragesBy(possibleUpperStorageId, auth.getName());
+    public Page<Object> getStorageContent(@RequestParam(name = "storageId", required = false) Optional<Long> possibleUpperStorageId, Authentication auth, Pageable pageable) {
+        double storageSize = Math.ceil(pageable.getPageSize() / 2d);
+        double itemSize = Math.floor(pageable.getPageSize() / 2d);
 
-        return Stream.concat(subStorages.stream(), storageItems.stream()).toList();
+        Page<ItemDto> storageItems = inventoryService.getStorageItemsBy(
+                possibleUpperStorageId,
+                auth.getName(),
+                PageRequest.of(pageable.getPageNumber(), (int) itemSize)
+        );
+        Page<StorageDto> subStorages = inventoryService.getSubStoragesBy(
+                possibleUpperStorageId,
+                auth.getName(),
+                PageRequest.of(pageable.getPageNumber(), (int) storageSize));
+
+        List<Object> objects = Stream.concat(
+                subStorages.getContent().stream(),
+                storageItems.getContent().stream()
+        ).toList();
+
+        return new PageImpl<>(objects, pageable, storageItems.getTotalElements() + subStorages.getTotalElements());
+    }
+
+    @GetMapping("/search")
+    public Page<Object> getContentBy(@RequestParam String name, Authentication auth, Pageable pageable) {
+        double storageSize = Math.ceil(pageable.getPageSize() / 2d);
+        double itemSize = Math.floor(pageable.getPageSize() / 2d);
+
+        Page<ItemDto> storageItems = inventoryService.findItemsBy(
+                name,
+                auth.getName(),
+                PageRequest.of(pageable.getPageNumber(), (int) itemSize)
+        );
+        Page<StorageDto> subStorages = inventoryService.findStoragesBy(
+                name,
+                auth.getName(),
+                PageRequest.of(pageable.getPageNumber(), (int) storageSize)
+        );
+
+        List<Object> objects = Stream.concat(
+                subStorages.getContent().stream(),
+                storageItems.getContent().stream()
+        ).toList();
+
+        return new PageImpl<>(objects, pageable, storageItems.getTotalElements() + subStorages.getTotalElements());
     }
 
     @PostMapping("/storage")
