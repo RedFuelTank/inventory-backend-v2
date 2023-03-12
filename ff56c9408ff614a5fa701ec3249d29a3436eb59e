@@ -1,0 +1,3 @@
+[ver:1,total:399,branch:main]
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/ItemDto.java:241,1678464000:61,1678467600:180,m
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/StorageDto.java:158,1678464000:158,m
