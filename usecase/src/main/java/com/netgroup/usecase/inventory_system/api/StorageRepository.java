@@ -10,4 +10,6 @@ public interface StorageRepository {
     Storage saveStorage(Storage storage);
 
     Storage deleteStorage(Long id, String businessName);
+
+    Page<Storage> findStoragesBy(String name, String businessName, Pageable pageable);
 }

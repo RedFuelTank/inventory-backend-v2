@@ -10,4 +10,6 @@ public interface ItemRepository {
     Item saveItem(Item item);
 
     Item deleteItem(Long id, String businessName);
+
+    Page<Item> findItemsBy(String name, String businessName, Pageable pageable);
 }
