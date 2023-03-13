@@ -1,0 +1,6 @@
+[ver:1,total:420,branch:main]
+application/src/test/java/com/netgroup/web/inventory_system/InventorySystemControllerTest.java:343,1678698000:343,m
+application/src/test/java/com/netgroup/web/client/ClientControllerTest.java:36,1678698000:36,m
+.gtm/JUnit-> InventorySystemControllerTest.app:20,1678698000:20,r
+.gtm/JUnit-> ClientControllerTest$RegisterRepresentative.app:12,1678698000:12,r
+.gtm/JUnit-> InventorySystemControllerTest$GetStorageContentByName.app:9,1678698000:9,r
