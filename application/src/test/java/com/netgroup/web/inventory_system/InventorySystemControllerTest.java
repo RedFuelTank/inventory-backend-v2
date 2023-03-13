@@ -60,7 +60,7 @@ public class InventorySystemControllerTest {
         private final static int STORAGE_TOTAL_ELEMENTS = 20;
         private final static int ITEM_TOTAL_ELEMENTS = 10;
         private final static int TOTAL_ELEMENTS = STORAGE_TOTAL_ELEMENTS + ITEM_TOTAL_ELEMENTS;
-        public static final int PAGE_SIZE = 2;
+        public static final int PAGE_SIZE = 4;
 
 
         static {
@@ -102,7 +102,68 @@ public class InventorySystemControllerTest {
         @DisplayName("Should return correct number of elements")
         void shouldReturnCorrectNumberElements() throws Exception {
             requestBuilder.getStorageContent()
-                    .andExpect(jsonPath("$.content", hasSize(4)));
+                    .andExpect(jsonPath("$.content", hasSize(PAGE_SIZE)));
+        }
+
+        @Test
+        @DisplayName("Should return correct number of total elements")
+        void shouldReturnCorrectTotalElements() throws Exception {
+            requestBuilder.getStorageContent()
+                    .andExpect(jsonPath("$.totalElements", equalTo(TOTAL_ELEMENTS)));
+        }
+    }
+
+    @Nested
+    @DisplayName("Get storage content by name")
+    class GetStorageContentByName {
+        private final static List<StorageDto> STORAGE_PAGE_CONTENT;
+        private final static List<ItemDto> ITEM_PAGE_CONTENT;
+
+        private final static int STORAGE_TOTAL_ELEMENTS = 2;
+        private final static int ITEM_TOTAL_ELEMENTS = 2;
+        private final static int TOTAL_ELEMENTS = STORAGE_TOTAL_ELEMENTS + ITEM_TOTAL_ELEMENTS;
+        public static final int PAGE_SIZE = 4;
+
+        static {
+            STORAGE_PAGE_CONTENT = List.of(
+                    new StorageDto(1L, "suitable object", null),
+                    new StorageDto(2L, "suitable object ", null)
+            );
+            ITEM_PAGE_CONTENT = List.of(
+                    new ItemDto(1L, "suitable object", null),
+                    new ItemDto(2L, "suitable object", null)
+            );
+        }
+
+        @BeforeEach
+        void init() {
+            given(inventoryService.getStorageItemsBy(any(), any(), any())).willReturn(new PageImpl<>(
+                    ITEM_PAGE_CONTENT, Pageable.ofSize(PAGE_SIZE), ITEM_TOTAL_ELEMENTS)
+            );
+            given(inventoryService.getSubStoragesBy(any(), any(), any())).willReturn(new PageImpl<>(
+                    STORAGE_PAGE_CONTENT, Pageable.ofSize(PAGE_SIZE), STORAGE_TOTAL_ELEMENTS)
+            );
+        }
+
+        @Test
+        @DisplayName("Should return the HTTP status 200")
+        void shouldReturnHttpStatusOk() throws Exception {
+            requestBuilder.getStorageContent()
+                    .andExpect(status().isOk());
+        }
+
+        @Test
+        @DisplayName("Should return HTTP response with JSON media-type")
+        void shouldReturnCorrectMethodType() throws Exception {
+            requestBuilder.getStorageContent()
+                    .andExpect(content().contentType(MediaType.APPLICATION_JSON));
+        }
+
+        @Test
+        @DisplayName("Should return correct number of elements")
+        void shouldReturnCorrectNumberElements() throws Exception {
+            requestBuilder.getStorageContent()
+                    .andExpect(jsonPath("$.content", hasSize(PAGE_SIZE)));
         }
 
         @Test

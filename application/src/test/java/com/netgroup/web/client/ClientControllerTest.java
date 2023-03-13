@@ -33,12 +33,6 @@ class ClientControllerTest {
     private PaymentService paymentService;
     private ClientRequestBuilder requestBuilder;
 
-
-    @Test
-    void test() {
-        System.out.println(clientService);
-        System.out.println("Test");
-    }
     @BeforeEach
     void init() {
         requestBuilder = new ClientRequestBuilder(mockMvc);
