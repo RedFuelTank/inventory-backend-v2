@@ -1,5 +1,6 @@
 package com.netgroup.web.inventory_system;
 
+import com.netgroup.usecase.image.api.ImageService;
 import com.netgroup.usecase.inventory_system.api.InventorySystemService;
 import com.netgroup.usecase.inventory_system.api.ItemDto;
 import com.netgroup.usecase.inventory_system.api.StorageDto;
@@ -40,6 +41,9 @@ public class InventorySystemControllerTest {
 
     @MockBean
     StatisticsService statisticsService;
+
+    @MockBean
+    ImageService imageService;
 
     InventorySystemRequestBuilder requestBuilder;
 
