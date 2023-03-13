@@ -1,0 +1,8 @@
+[ver:1,total:925,branch:main]
+pom.xml:300,1678654800:300,r
+infrastructure/src/main/java/com/netgroup/repository/payment/PaymentRepositoryImpl.java:262,1678698000:262,r
+ui/src/main/java/com/netgroup/web/HelloController.java:180,1678651200:180,r
+application/src/test/java/com/netgroup/web/inventory_system/InventorySystemControllerTest.java:102,1678698000:102,m
+ui/src/main/java/com/netgroup/web/inventory_system/InventorySystemController.java:40,1678698000:40,r
+infrastructure/src/main/java/com/netgroup/repository/statistics/StatisticsRepositoryImpl.java:23,1678698000:23,r
+.gtm/JUnit-> InventorySystemControllerTest$GetStorageContent.app:18,1678698000:18,r
