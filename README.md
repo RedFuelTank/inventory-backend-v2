@@ -18,6 +18,13 @@ This application also includes a payment functionality, statistics for the user'
 * PostgreSQL
 * Liquibase Migration
 
+### Prebuild profiles
+| type         | name     | password |
+|--------------|----------|----------|
+| REPRESENTIVE | user     | user     |
+| BUSINESS     | business | business |
+| ADMIN        | admin    | admin    |
+
 ## Architecture
 
 ![Use cases](usecases.png)
