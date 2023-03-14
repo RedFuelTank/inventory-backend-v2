@@ -1,0 +1,5 @@
+[ver:1,total:1236,branch:main]
+.gtm/Spring Boot-> InventoryV2Application.app:960,1678698000:480,1678777200:120,1678780800:360,r
+ui/src/main/java/com/netgroup/web/inventory_system/InventorySystemController.java:180,1678780800:180,r
+application/src/main/resources/db/changelog/db.changelog-master.xml:84,1678788000:84,m
+.gtm/Application-> SecurityConfig.app:12,1678788000:12,r
