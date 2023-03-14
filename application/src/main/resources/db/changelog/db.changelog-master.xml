@@ -67,8 +67,8 @@
 
     <changeSet id="V4__ADD_BUSINESS" author="">
         <insert tableName="businesses">
-            <column name="name" value="Testable"/>
-            <column name="password" value="$2a$10$rDhr28yT2X26mqQVytCJUOti9k6Ry16i3HSWM.vLZ8zMQQl1SqyO2"/>
+            <column name="name" value="business"/>
+            <column name="password" value="$2a$10$vFPzePBJN8OLzM93PQsFSudSvduIxPhzu88LPN.G11QvQbERFjpy."/>
             <column name="enabled" value="true"/>
             <column name="representative_username" value="user"/>
         </insert>
