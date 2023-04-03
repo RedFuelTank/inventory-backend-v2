@@ -111,8 +111,8 @@ public class InventorySystemController {
         return inventoryService.deleteStorage(id, auth.getName());
     }
 
-    @PostMapping("/upload/image")
-    public String uploadImage(@RequestParam(name = "files") MultipartFile files, Authentication auth) {
+    @PostMapping("/item/{id}/image")
+    public String uploadImage(@RequestParam(name = "files") MultipartFile files, @PathVariable Long id, Authentication auth) {
         try {
             imageService.uploadImage(0L, auth.getName(), files.getBytes());
         } catch (IOException e) {
@@ -121,7 +121,7 @@ public class InventorySystemController {
         return "Uploaded";
     }
 
-    @GetMapping(value = "/load/image/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
+    @GetMapping(value = "/item/{id}/image", produces = MediaType.IMAGE_JPEG_VALUE)
     public byte[] loadImage(@PathVariable Long id, Authentication authentication) {
         ImageDto image = imageService.getImageBy(id);
 
