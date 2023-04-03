@@ -21,4 +21,6 @@ public interface InventorySystemService {
     Page<ItemDto> findItemsBy(String name, String businessName, Pageable pageable);
 
     Page<StorageDto> findStoragesBy(String name, String businessName, Pageable pageable);
+
+    ItemDto getItemById(Long id);
 }

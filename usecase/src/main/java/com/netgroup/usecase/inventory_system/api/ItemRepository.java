@@ -12,4 +12,6 @@ public interface ItemRepository {
     Item deleteItem(Long id, String businessName);
 
     Page<Item> findItemsBy(String name, String businessName, Pageable pageable);
+
+    Item getItemById(Long id);
 }

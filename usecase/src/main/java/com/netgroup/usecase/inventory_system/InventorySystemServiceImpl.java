@@ -124,4 +124,14 @@ public class InventorySystemServiceImpl implements InventorySystemService {
 
         return new PageImpl<>(storageDtos, pageable, storagesPage.getTotalElements());
     }
+
+    @Override
+    public ItemDto getItemById(Long id) {
+        Item item = itemRepository.getItemById(id);
+        return ItemDto.builder()
+                .id(item.getId())
+                .name(item.getName())
+                .storageId(item.getStorageId())
+                .build();
+    }
 }
