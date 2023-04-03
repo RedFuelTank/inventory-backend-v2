@@ -10,8 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
-
-import static java.util.stream.Collectors.toList;
+import java.util.Optional;
 
 public interface ItemRepositoryImpl extends ItemRepository,
         PagingAndSortingRepository<ItemModel, Long>,
@@ -90,5 +89,20 @@ public interface ItemRepositoryImpl extends ItemRepository,
         return new PageImpl<>(items, pageable, itemModelsPage.getTotalElements());
     }
 
-    ;
+    @Override
+    default Item getItemById(Long id) {
+        Optional<ItemModel> possibleItem = findById(id);
+
+        if (possibleItem.isPresent()) {
+            ItemModel itemModel = possibleItem.get();
+            return Item.builder()
+                    .id(itemModel.getId())
+                    .name(itemModel.getName())
+                    .storageId(itemModel.getStorageId())
+                    .businessName(itemModel.getBusinessName())
+                    .build();
+        } else {
+            throw new IllegalArgumentException();
+        }
+    };
 }
