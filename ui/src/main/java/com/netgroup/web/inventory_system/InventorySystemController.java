@@ -78,6 +78,11 @@ public class InventorySystemController {
         return new PageImpl<>(objects, pageable, storageItems.getTotalElements() + subStorages.getTotalElements());
     }
 
+    @GetMapping("/item/{id}")
+    public ItemDto getItemById(@PathVariable Long id) {
+        return inventoryService.getItemById(id);
+    }
+
     @PostMapping("/storage")
     public StorageDto addStorage(@RequestBody StorageDto storage, Authentication auth) {
         return inventoryService.saveStorage(storage, auth.getName());
