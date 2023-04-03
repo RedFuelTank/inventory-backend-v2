@@ -1,0 +1,8 @@
+[ver:1,total:417,branch:main]
+infrastructure/src/main/java/com/netgroup/repository/inventory_system/model/ItemView.java:140,1680544800:140,r
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/ItemDto.java:115,1680544800:115,r
+usecase/src/main/java/com/netgroup/usecase/inventory_system/InventorySystemServiceImpl.java:74,1678982400:74,m
+infrastructure/src/main/java/com/netgroup/repository/inventory_system/StorageRepositoryImpl.java:60,1680544800:60,r
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/StorageDto.java:15,1680544800:15,r
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/InventorySystemService.java:7,1678982400:7,m
+usecase/src/main/java/com/netgroup/usecase/inventory_system/api/ItemRepository.java:6,1678982400:6,m
