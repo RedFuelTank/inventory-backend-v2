@@ -73,7 +73,7 @@
             <column name="representative_username" value="user"/>
         </insert>
         <insert tableName="business_authorities">
-            <column name="name" value="Testable"/>
+            <column name="name" value="business"/>
             <column name="authority" value="BUSINESS"/>
         </insert>
     </changeSet>
@@ -124,7 +124,7 @@
 
     <changeSet id="V8__ADD_PAYMENT_BUSINESS" author="">
         <insert tableName="payments">
-            <column name="business_name" value="Testable"/>
+            <column name="business_name" value="business"/>
             <column name="total_amount" value="0"/>
             <column name="free_amount" value="10"/>
         </insert>
