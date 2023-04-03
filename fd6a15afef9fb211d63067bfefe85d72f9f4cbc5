@@ -1,0 +1,4 @@
+[ver:1,total:444,branch:main]
+infrastructure/src/main/java/com/netgroup/repository/inventory_system/model/ItemView.java:252,1680544800:252,r
+.gtm/Spring Boot-> InventoryV2Application.app:132,1680544800:132,r
+application/src/main/resources/db/changelog/db.changelog-master.xml:60,1680544800:60,m
